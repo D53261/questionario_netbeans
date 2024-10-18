@@ -416,7 +416,6 @@ public class Perguntas extends javax.swing.JFrame {
     private void btnenviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnenviarActionPerformed
         // TODO add your handling code here:
         Respostas respostas = new Respostas();
-        Perguntas perguntas = new Perguntas();
         List<String> v_ou_f = new ArrayList<>();
         List<String> v_ou_f_certo = new ArrayList<>(Arrays.asList("V", "F", "F", "V", "F"));
         
@@ -456,14 +455,12 @@ public class Perguntas extends javax.swing.JFrame {
         
         List<JCheckBox> checkboxes = new ArrayList<JCheckBox>(Arrays.asList(ck1, ck2, ck3, ck4, ck5));
         List<JCheckBox> ck_desejados = new ArrayList<JCheckBox>(Arrays.asList(ck2, ck3));
-        boolean TodosCkCorretos = true;
+        boolean TodosCkCorretos = false;
         for(JCheckBox checkbox : checkboxes) {
             if(checkbox.isSelected()) {
-                if(!ck_desejados.contains(checkbox)) {
-                    TodosCkCorretos = false;
+                if(ck_desejados.contains(checkbox)) {
+                    TodosCkCorretos = true;
                 }
-            } else {
-                TodosCkCorretos = false;
             }
         }
         
@@ -474,8 +471,7 @@ public class Perguntas extends javax.swing.JFrame {
         }
         
         respostas.setVisible(true);
-        perguntas.dispose();
-        perguntas = null;
+        dispose();
     }//GEN-LAST:event_btnenviarActionPerformed
 
     /**
